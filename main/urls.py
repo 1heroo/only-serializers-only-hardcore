@@ -9,5 +9,7 @@ urlpatterns = [
     path('blogs/', include('blog.urls')),
     path('core/', include('core.urls')),
     path('users/', include('my_users.urls')),
-    path('todo-app/', include('todo_app.urls'))
+    path('todo-app/', include('todo_app.urls')),
+    path('entries/', include('entries.urls')),
+
 ] + swagger

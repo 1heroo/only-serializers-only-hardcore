@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-
     # my apps
     'projects',
     'blog',
@@ -53,6 +52,7 @@ INSTALLED_APPS = [
     'social_django',
     'rest_social_auth',
     'todo_app',
+    'entries'
 ]
 
 MIDDLEWARE = [
