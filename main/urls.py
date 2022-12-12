@@ -1,7 +1,7 @@
 from .yasg import urlpatterns as swagger
 from django.contrib import admin
 from django.urls import path, include
-
+from pycasts.views import PodcastsAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,5 +11,7 @@ urlpatterns = [
     path('users/', include('my_users.urls')),
     path('todo-app/', include('todo_app.urls')),
     path('entries/', include('entries.urls')),
-    path('cards/', include('cards.urls'))
+    path('cards/', include('cards.urls')),
+
+    path('podcasts/', PodcastsAPIView.as_view(), name='podcasts')
 ] + swagger
