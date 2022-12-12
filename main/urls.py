@@ -11,5 +11,5 @@ urlpatterns = [
     path('users/', include('my_users.urls')),
     path('todo-app/', include('todo_app.urls')),
     path('entries/', include('entries.urls')),
-
+    path('cards/', include('cards.urls'))
 ] + swagger
