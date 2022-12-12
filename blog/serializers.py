@@ -26,7 +26,7 @@ class PostSerializer(serializers.Serializer):
 class CommentSerializer(serializers.Serializer):
     author = serializers.CharField(max_length=100)
     body = serializers.CharField(max_length=1000)
-    created_on = serializers.DateTimeField()
+    created_on = serializers.DateTimeField(read_only=True)
     post = serializers.PrimaryKeyRelatedField(queryset=Post.objects.all())
 
     def create(self, validated_data):

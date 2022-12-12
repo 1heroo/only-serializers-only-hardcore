@@ -9,7 +9,6 @@ class MyUser(AbstractUser, PermissionsMixin):
         _("email address"),
         unique=True
     )
-    code = models.CharField(max_length=10, blank=True)
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
 

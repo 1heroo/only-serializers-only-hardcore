@@ -37,7 +37,7 @@ class EntryDetailAPIView(APIView):
     @swagger_auto_schema(request_body=EntrySerializer)
     def patch(self, request, pk):
         instance = self.get_object(pk=pk)
-        serializer = EntrySerializer(instance=instance, data=request.data)
+        serializer = EntrySerializer(instance=instance, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
