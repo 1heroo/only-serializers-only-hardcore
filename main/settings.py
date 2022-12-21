@@ -1,6 +1,6 @@
 import os.path
 from pathlib import Path
-
+import logging
 from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -72,16 +72,31 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 
 LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    'formatters': {
+        'verbose': {
+            'format': '{asctime}, {levelname}, {thread:d}, {message}',
+            'datefmt' : '%Y-%m-%d %H:%M:%S',
+            'style': '{',
         },
     },
-    "root": {
-        "handlers": ["console"],
-        "level": "INFO",
+
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs.csv',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
     },
 }
 
